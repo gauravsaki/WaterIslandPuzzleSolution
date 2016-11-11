@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.waterislandpuzzle.HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_blank_fragment" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Generate Puzzle"
+        android:id="@+id/generatePuzzleBtn"
+        android:layout_gravity="center_horizontal" />
+
+    <GridView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/earthView"
+        android:verticalSpacing="1dip"
+        android:horizontalSpacing="10dip"
+        android:columnWidth="20dp"
+        android:numColumns="5"
+        android:stretchMode="columnWidth"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Solve Big Farm"
+        android:id="@+id/solvePuzzleBtn"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
