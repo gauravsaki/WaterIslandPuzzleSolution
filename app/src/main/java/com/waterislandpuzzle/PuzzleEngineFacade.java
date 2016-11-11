@@ -9,13 +9,13 @@ import java.util.Set;
 /**
  * Created by hp on 11/11/2016.
  */
-public class PuzzleEngine {
+public class PuzzleEngineFacade {
     Context context;
     Set<String> latestListOfIslands = null;
     Set<String> previousListOfIslands = null;
     int[][] earthMatrix;;
     int latestNumberOfSubIsland=0,previousNumberOfSubIsland=0;
-    public PuzzleEngine(Context context){
+    public PuzzleEngineFacade(Context context){
         this.context=context;
     }
 
@@ -72,6 +72,7 @@ public class PuzzleEngine {
                     // visited yet, then new island found, Visit all
                     // cells in this island and increment island count
                     DFS(matrix, i, j, visited);
+                    //This condition checks if two same length islands.
                     Set<String> tempLatestListOfIslands = new HashSet<>() ;
                     if (latestNumberOfSubIsland > previousNumberOfSubIsland) {
                         tempLatestListOfIslands.addAll(latestListOfIslands);

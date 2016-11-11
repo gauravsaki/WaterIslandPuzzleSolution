@@ -21,7 +21,7 @@ public class EarthFillAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return Utils.earthHashMap.size();
+        return Utils.getEarthHashMap().size();
     }
 
     public Object getItem(int position) {
@@ -33,7 +33,7 @@ public class EarthFillAdapter extends BaseAdapter {
     }
 
     private int getValueFromIndex(int pos){
-        return  (new ArrayList<Integer>(Utils.earthHashMap.values())).get(pos);
+        return  (new ArrayList<Integer>(Utils.getEarthHashMap().values())).get(pos);
 
     }
 
@@ -57,11 +57,5 @@ public class EarthFillAdapter extends BaseAdapter {
     }
 
 
-/*    Islands I = new Islands();
-    System.out.println("Number of islands is: "+ I.countIslands(M));*/
 
-    // references to our images
-    private Integer[] color = {
-            R.color.very_light_blue, R.color.beautiful_peach
-    };
 }

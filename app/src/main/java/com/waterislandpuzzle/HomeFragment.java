@@ -10,9 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
 
-import java.util.HashSet;
-import java.util.Set;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,7 +23,7 @@ public class HomeFragment extends Fragment {
 
     private GridView earthView;
     private OnFragmentInteractionListener mListener;
-    private PuzzleEngine puzzleEngine;
+    private PuzzleEngineFacade puzzleEngineFacade;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -61,26 +58,32 @@ public class HomeFragment extends Fragment {
         earthView = (GridView) view.findViewById(R.id.earthView);
         final Button solvePuzzleBtn = (Button) view.findViewById(R.id.solvePuzzleBtn);
         final Button generatePuzzleBtn = (Button) view.findViewById(R.id.generatePuzzleBtn);
-        puzzleEngine = new PuzzleEngine(getActivity());
+        puzzleEngineFacade = new PuzzleEngineFacade(getActivity());
 
 
         generatePuzzleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                puzzleEngine.generatePuzzle();
+                puzzleEngineFacade.generatePuzzle();
                 earthView.setAdapter(new EarthFillAdapter((getActivity())));
+                solvePuzzleBtn.setEnabled(true);
                 solvePuzzleBtn.setVisibility(View.VISIBLE);
-                generatePuzzleBtn.setVisibility(View.INVISIBLE);
+                earthView.setVisibility(View.VISIBLE);
+                generatePuzzleBtn.setEnabled(false);
+                generatePuzzleBtn.setBackgroundResource(R.drawable.gray_btn);
+                solvePuzzleBtn.setBackgroundResource(R.drawable.red_btn);
             }
         });
         solvePuzzleBtn.setVisibility(View.INVISIBLE);
         solvePuzzleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                puzzleEngine.solvePuzzle();
+                puzzleEngineFacade.solvePuzzle();
                 earthView.setAdapter(new EarthFillAdapter((getActivity())));
-                generatePuzzleBtn.setVisibility(View.VISIBLE);
-                solvePuzzleBtn.setVisibility(View.INVISIBLE);
+                generatePuzzleBtn.setEnabled(true);
+                solvePuzzleBtn.setEnabled(false);
+                generatePuzzleBtn.setBackgroundResource(R.drawable.bluebtn);
+                solvePuzzleBtn.setBackgroundResource(R.drawable.dark_gray_btn);
             }
         });
 

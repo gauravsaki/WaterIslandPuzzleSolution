@@ -5,17 +5,16 @@
     android:orientation="vertical"
     tools:context="com.waterislandpuzzle.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Generate Puzzle"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
         android:id="@+id/generatePuzzleBtn"
+        android:background="@drawable/bluebtn"
+        android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal" />
 
     <GridView
@@ -26,6 +25,8 @@
         android:horizontalSpacing="10dip"
         android:columnWidth="20dp"
         android:numColumns="5"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
         android:stretchMode="columnWidth"
         />
 
@@ -34,6 +35,10 @@
         android:layout_height="wrap_content"
         android:text="Solve Big Farm"
         android:id="@+id/solvePuzzleBtn"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>
